@@ -1134,6 +1134,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   mapBoundary: {fileID: 897399654}
+  direction: 0
+  additivePosition: 3
 --- !u!61 &1190019638
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1168,7 +1170,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 1.3163352, y: 0}
+  m_Offset: {x: 1.3163352, y: -0.30735755}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1178,7 +1180,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 4.46404, y: 1}
+  m_Size: {x: 4.46404, y: 0.3852849}
   m_EdgeRadius: 0
 --- !u!1 &1299681892
 GameObject:
@@ -8547,7 +8549,7 @@ Transform:
   m_GameObject: {fileID: 2087022153}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.39, y: -1.03, z: 0}
+  m_LocalPosition: {x: 1.39, y: -1.65, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8566,6 +8568,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   mapBoundary: {fileID: 95680335}
+  direction: 1
+  additivePosition: 3
 --- !u!61 &2087022156
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8600,7 +8604,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 1.3163352, y: 0}
+  m_Offset: {x: 1.3163352, y: -0.34975147}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -8610,7 +8614,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 4.46404, y: 1}
+  m_Size: {x: 4.46404, y: 0.30049706}
   m_EdgeRadius: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
