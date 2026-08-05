@@ -19,6 +19,12 @@ public class PlayerItemCollector : MonoBehaviour
             if (item != null) 
             {
                 //Add item inventory
+                bool itemAdded = inventoryController.AddItem(collision.gameObject);
+
+                if (itemAdded) 
+                {
+                    Destroy(collision.gameObject);
+                }
             }
         }
     }

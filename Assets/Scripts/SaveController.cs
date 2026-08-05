@@ -14,6 +14,7 @@ public class SaveController : MonoBehaviour
     {
         //Define save location
         saveLocation = Path.Combine(Application.persistentDataPath, "saveData.json");
+        Debug.Log(Application.persistentDataPath);
         inventoryController = FindAnyObjectByType<InventoryController>();
 
         LoadGame();
