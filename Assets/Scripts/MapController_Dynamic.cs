@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MapController_Dynamic : MonoBehaviour
 {
@@ -46,8 +47,10 @@ public class MapController_Dynamic : MonoBehaviour
 
         foreach(PolygonCollider2D area in mapAreas) 
         {
-            //CreateAreaUI
+            CreateAreaUI(area, area == currentArea);
         }
+
+        MovePlayerIcon(currentArea.name);
     }
 
     //ClearMap
@@ -64,13 +67,40 @@ public class MapController_Dynamic : MonoBehaviour
     private void CreateAreaUI(PolygonCollider2D area, bool isCurrent) 
     {
         //Instantiate prefab for image
+        GameObject areaImage = Instantiate(areaPrefab, mapParent);
+        RectTransform rectTransform = areaImage.GetComponent<RectTransform>();
 
         //Get bounds
+        Bounds bounds = area.bounds;
 
         //Scale UI image fit map and bounds
+        rectTransform.sizeDelta = new Vector2(bounds.size.x * mapScale, bounds.size.y * mapScale);
+        rectTransform.anchoredPosition = bounds.center * mapScale;
+
+        //Set color based on current or not
+        areaImage.GetComponent<Image>().color = isCurrent ? currentAreaColor : defaultColor;
+
+        //Add to dictionary
+        uiAreas[area.name] = rectTransform;
     }
 
-    //UpdateCurrentArea
+    public void UpdateCurrentArea(string newCurrentArea) 
+    {
+        //Update Color
+        foreach (KeyValuePair<string, RectTransform> area in uiAreas) 
+        {
+            area.Value.GetComponent<Image>().color = area.Key == newCurrentArea ? currentAreaColor : defaultColor;
+        }
 
-    //MovePlayerIcon
+        MovePlayerIcon(newCurrentArea);
+    }
+
+    private void MovePlayerIcon(string newCurrentArea) 
+    {
+        if (uiAreas.TryGetValue(newCurrentArea, out RectTransform areaUI)) 
+        {
+            //If current area was found set the icon position to center of area
+            playerIcon.anchoredPosition = areaUI.anchoredPosition;
+        }
+    }
 }
