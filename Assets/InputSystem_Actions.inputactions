@@ -162,7 +162,7 @@
                     "name": "",
                     "id": "392dc9c5-6a42-4693-8124-3fd85426e0d0",
                     "path": "<Keyboard>/e",
-                    "interactions": "",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": "",
                     "action": "Interact",
