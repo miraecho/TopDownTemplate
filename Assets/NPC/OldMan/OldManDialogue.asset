@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: OldManDialogue
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   npcName: Old Man
-  npcPortrait: {fileID: 0}
+  npcPortrait: {fileID: 21300000, guid: 92d4bae977d5b5f498baaa566b00cd01, type: 3}
   dialogueLines:
   - Hello young man!
   - Would you like my help?
