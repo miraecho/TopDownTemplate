@@ -57,7 +57,7 @@ public class NPC : MonoBehaviour, IInteractable
             dialogueText.SetText(dialogueData.dialogueLines[dialogueIndex]);
             isTyping = false;
         }
-        else if (++dialogueIndex > dialogueData.dialogueLines.Length)
+        else if (++dialogueIndex < dialogueData.dialogueLines.Length)
         {
             //If another line, type the next line
             StartCoroutine(TypeLine());
@@ -76,6 +76,7 @@ public class NPC : MonoBehaviour, IInteractable
         foreach(char letter in dialogueData.dialogueLines[dialogueIndex]) 
         {
             dialogueText.text += letter;
+            SoundEffectManager.PlayVoice(dialogueData.voiceSound, dialogueData.voicePitch);
             yield return new WaitForSeconds(dialogueData.typingSpeed);
         }
 
