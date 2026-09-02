@@ -180,7 +180,7 @@ Transform:
   m_GameObject: {fileID: 25995759}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6, y: 6, z: 0}
+  m_LocalPosition: {x: 4.34, y: -2.28, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -630,7 +630,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &172817015
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1012,7 +1012,7 @@ GameObject:
   - component: {fileID: 254070037}
   - component: {fileID: 254070038}
   m_Layer: 0
-  m_Name: NPC
+  m_Name: NPC_OldMan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1131,13 +1131,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 254070033}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.62, y: 1.06, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.0468899, y: 0.28667992, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 720162807}
-  m_Father: {fileID: 0}
+  m_Children: []
+  m_Father: {fileID: 1186418566}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &254070037
 MonoBehaviour:
@@ -1169,7 +1168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   waypointParent: {fileID: 720162807}
-  moveSpeed: 2
+  moveSpeed: 1
   waitTime: 2
   loopWaypoints: 1
 --- !u!1 &273127294
@@ -2342,7 +2341,7 @@ Transform:
   m_GameObject: {fileID: 550500833}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -5, z: 0}
+  m_LocalPosition: {x: -0.4, y: -2.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2448,7 +2447,7 @@ Transform:
   m_GameObject: {fileID: 583375286}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.94, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3018,14 +3017,14 @@ Transform:
   m_GameObject: {fileID: 720162806}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1068.4749, y: 340.22913, z: 0}
+  m_LocalPosition: {x: 1.0468899, y: 0.28667992, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 583375287}
   - {fileID: 550500834}
   - {fileID: 25995760}
-  m_Father: {fileID: 254070036}
+  m_Father: {fileID: 1186418566}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &720886256
 GameObject:
@@ -5031,6 +5030,39 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -200, y: -200}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1186418565
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1186418566}
+  m_Layer: 0
+  m_Name: NPC_OldMan
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1186418566
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1186418565}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.57311, y: 0.77332, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 254070036}
+  - {fileID: 720162807}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1190019635
 GameObject:
   m_ObjectHideFlags: 0
@@ -5870,6 +5902,8 @@ GameObject:
   - component: {fileID: 1406820661}
   - component: {fileID: 1406820662}
   - component: {fileID: 1406820660}
+  - component: {fileID: 1406820664}
+  - component: {fileID: 1406820663}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -6055,7 +6089,7 @@ SpriteRenderer:
   m_SortingLayer: 4
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -467307283419413426, guid: 750c7ce78436cc246a62789e75a25625, type: 3}
+  m_Sprite: {fileID: 6271674672454095231, guid: 1855f825db077d14787e3107a01ca04b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -6164,6 +6198,36 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.94085443, y: 0.89818263}
   m_EdgeRadius: 0
+--- !u!114 &1406820663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1406820655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed8b1ae4e4e52b34ea557c1c11e076fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.2D.Animation.Runtime::UnityEngine.U2D.Animation.SpriteResolver
+  m_CategoryHash: 1.8625731e-11
+  m_labelHash: 8.916046e-35
+  m_SpriteKey: 0
+  m_SpriteHash: 486012624
+--- !u!114 &1406820664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1406820655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c29cff538c195c249b69c6f2236de67b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.2D.Animation.Runtime::UnityEngine.U2D.Animation.SpriteLibrary
+  m_Library: []
+  m_SpriteLibraryAsset: {fileID: 7108339969198208228, guid: b501521464b8f49409b4528d78f64c12, type: 3}
 --- !u!1 &1434004278
 GameObject:
   m_ObjectHideFlags: 0
@@ -14530,4 +14594,4 @@ SceneRoots:
   - {fileID: 630962350}
   - {fileID: 175430131}
   - {fileID: 1299286786}
-  - {fileID: 254070036}
+  - {fileID: 1186418566}
