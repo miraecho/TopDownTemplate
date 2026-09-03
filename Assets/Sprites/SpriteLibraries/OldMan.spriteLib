@@ -1,0 +1,90 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5e6fedc2472449cead18ef23b5cb30d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.2D.Animation.Runtime::UnityEngine.U2D.Animation.SpriteLibrarySourceAsset
+  m_Library:
+  - m_Name: Idle
+    m_Hash: 1008081451
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: OldMan_Idle_0
+      m_Hash: 143609441
+      m_Sprite: {fileID: 3951259047806676931, guid: 5589ac61fa580154ebd62da6f7744255, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3951259047806676931, guid: 5589ac61fa580154ebd62da6f7744255, type: 3}
+    - m_Name: OldMan_Idle_1
+      m_Hash: 1065910007
+      m_Sprite: {fileID: 5502108653082413233, guid: 5589ac61fa580154ebd62da6f7744255, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 5502108653082413233, guid: 5589ac61fa580154ebd62da6f7744255, type: 3}
+    - m_Name: OldMan_Idle_2
+      m_Hash: 646000461
+      m_Sprite: {fileID: -4968760566762498843, guid: 5589ac61fa580154ebd62da6f7744255, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -4968760566762498843, guid: 5589ac61fa580154ebd62da6f7744255, type: 3}
+    - m_Name: OldMan_Idle_3
+      m_Hash: 294002651
+      m_Sprite: {fileID: -2796698080380136519, guid: 5589ac61fa580154ebd62da6f7744255, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -2796698080380136519, guid: 5589ac61fa580154ebd62da6f7744255, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 4
+  - m_Name: Walk
+    m_Hash: 765711723
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: OldMan_Walk_0
+      m_Hash: 858623984
+      m_Sprite: {fileID: -7499528097526013466, guid: 5eae481414cd65545896e243285ae7ee, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -7499528097526013466, guid: 5eae481414cd65545896e243285ae7ee, type: 3}
+    - m_Name: OldMan_Walk_1
+      m_Hash: 69910374
+      m_Sprite: {fileID: -1591656815425913285, guid: 5eae481414cd65545896e243285ae7ee, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1591656815425913285, guid: 5eae481414cd65545896e243285ae7ee, type: 3}
+    - m_Name: OldMan_Walk_2
+      m_Hash: 488894172
+      m_Sprite: {fileID: 6589141539248915098, guid: 5eae481414cd65545896e243285ae7ee, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 6589141539248915098, guid: 5eae481414cd65545896e243285ae7ee, type: 3}
+    - m_Name: OldMan_Walk_3
+      m_Hash: 707059274
+      m_Sprite: {fileID: 8089630559558908707, guid: 5eae481414cd65545896e243285ae7ee, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 8089630559558908707, guid: 5eae481414cd65545896e243285ae7ee, type: 3}
+    - m_Name: OldMan_Walk_4
+      m_Hash: 876628969
+      m_Sprite: {fileID: 3886982601379514899, guid: 5eae481414cd65545896e243285ae7ee, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3886982601379514899, guid: 5eae481414cd65545896e243285ae7ee, type: 3}
+    - m_Name: OldMan_Walk_5
+      m_Hash: 55016319
+      m_Sprite: {fileID: 8790823840452024055, guid: 5eae481414cd65545896e243285ae7ee, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 8790823840452024055, guid: 5eae481414cd65545896e243285ae7ee, type: 3}
+    - m_Name: OldMan_Walk_6
+      m_Hash: 441330373
+      m_Sprite: {fileID: -8878690332889087018, guid: 5eae481414cd65545896e243285ae7ee, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -8878690332889087018, guid: 5eae481414cd65545896e243285ae7ee, type: 3}
+    - m_Name: OldMan_Walk_7
+      m_Hash: 759765587
+      m_Sprite: {fileID: -7657195258899527309, guid: 5eae481414cd65545896e243285ae7ee, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -7657195258899527309, guid: 5eae481414cd65545896e243285ae7ee, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 8
+  m_PrimaryLibraryGUID: 
+  m_ModificationHash: 639239797444829719
+  m_Version: 1
