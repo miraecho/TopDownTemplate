@@ -71,4 +71,15 @@ public class SoundEffectManager : MonoBehaviour
     {
         SetVolume(sfxSlider.value);
     }
+
+    public float ReturnVolume() 
+    {
+        return sfxSlider.value;
+    }
+
+    public void LoadVolume(float volume) 
+    {
+        sfxSlider.value = volume;
+        SetVolume(volume);
+    }
 }

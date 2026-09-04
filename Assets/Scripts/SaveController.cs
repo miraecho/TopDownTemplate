@@ -12,6 +12,7 @@ public class SaveController : MonoBehaviour
     private InventoryController inventoryController;
     private HotbarController hotbarController;
     private Chest[] chests;
+    private SoundEffectManager soundEffectManager;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -27,6 +28,7 @@ public class SaveController : MonoBehaviour
         inventoryController = FindAnyObjectByType<InventoryController>();
         hotbarController = FindAnyObjectByType<HotbarController>();
         chests = FindObjectsByType<Chest>(FindObjectsSortMode.None);
+        soundEffectManager = FindAnyObjectByType<SoundEffectManager>();
     }
 
     public void SaveGame() 
@@ -37,7 +39,8 @@ public class SaveController : MonoBehaviour
             mapBoundary = FindAnyObjectByType<CinemachineConfiner2D>().BoundingShape2D.gameObject.name,
             inventorySaveData = inventoryController.GetInventoryItems(),
             hotbarSaveData = hotbarController.GetHotbarItems(),
-            chestSaveData = GetChestsState()
+            chestSaveData = GetChestsState(),
+            soundVolume = soundEffectManager.ReturnVolume()
         };
 
         File.WriteAllText(saveLocation, JsonUtility.ToJson(saveData));
@@ -76,6 +79,7 @@ public class SaveController : MonoBehaviour
 
             LoadChestStates(saveData.chestSaveData);
 
+            soundEffectManager.LoadVolume(saveData.soundVolume);
         }
         else 
         {
