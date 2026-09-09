@@ -17,8 +17,17 @@ MonoBehaviour:
   dialogueLines:
   - Hello young man!
   - Would you like my help?
+  - Thank you!
+  - Have a nice day!
   autoProgressLines: 0100
+  endDialogueLines: 00000101
   autoProgressDelay: 1.5
   typingSpeed: 0.05
   voiceSound: {fileID: 8300000, guid: 1934af5d688712a42aefa6cf0ae5580d, type: 3}
   voicePitch: 1
+  choices:
+  - dialogueIndex: 1
+    choices:
+    - Yes
+    - No
+    nextDialogueIndexes: 0200000003000000
