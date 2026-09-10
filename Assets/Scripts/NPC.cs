@@ -45,7 +45,7 @@ public class NPC : MonoBehaviour, IInteractable
         dialogueUI.ShowDialogueUI(true);
         PauseController.SetPause(true);
 
-        StartCoroutine(TypeLine());
+        DisplayCurrentLine();
     }
 
     void NextLine() 
@@ -57,10 +57,30 @@ public class NPC : MonoBehaviour, IInteractable
             dialogueUI.SetDialogueText(dialogueData.dialogueLines[dialogueIndex]);
             isTyping = false;
         }
-        else if (++dialogueIndex < dialogueData.dialogueLines.Length)
+
+        //Clear existing choices
+        dialogueUI.ClearChoices();
+        //Check endDialogueLines
+        if (dialogueData.endDialogueLines.Length > dialogueIndex && dialogueData.endDialogueLines[dialogueIndex]) 
         {
-            //If another line, type the next line
-            StartCoroutine(TypeLine());
+            EndDialogue();
+            return;
+        }
+
+        //Check if there are choices and display
+        foreach (Dialoguechoice dialogueChoice in dialogueData.choices) 
+        {
+            if (dialogueChoice.dialogueIndex == dialogueIndex) 
+            {
+                DisplayChoices(dialogueChoice);
+                return;
+            }
+        }
+
+
+        if (++dialogueIndex < dialogueData.dialogueLines.Length)
+        {
+            DisplayCurrentLine();
         }
         else 
         {
@@ -89,6 +109,28 @@ public class NPC : MonoBehaviour, IInteractable
         }
     }
 
+    void DisplayChoices(Dialoguechoice choice) 
+    {
+        for (int i = 0; i < choice.choices.Length; i++) 
+        {
+            int nextIndex = choice.nextDialogueIndexes[i];
+            dialogueUI.CreateChoiceButton(choice.choices[i], () => ChooseOption(nextIndex));
+        }
+    }
+
+    void ChooseOption(int nextIndex) 
+    {
+        dialogueIndex = nextIndex;
+        dialogueUI.ClearChoices();
+        DisplayCurrentLine();
+    }
+
+    void DisplayCurrentLine() 
+    {
+        StopAllCoroutines();
+        StartCoroutine(TypeLine());
+    }
+    
     public void EndDialogue() 
     {
         StopAllCoroutines();

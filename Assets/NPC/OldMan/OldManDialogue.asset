@@ -19,7 +19,7 @@ MonoBehaviour:
   - Would you like my help?
   - Thank you!
   - Have a nice day!
-  autoProgressLines: 0100
+  autoProgressLines: 01000000
   endDialogueLines: 00000101
   autoProgressDelay: 1.5
   typingSpeed: 0.05

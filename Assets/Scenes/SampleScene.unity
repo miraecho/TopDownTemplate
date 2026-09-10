@@ -234,6 +234,8 @@ MonoBehaviour:
   dialogueText: {fileID: 471111231}
   nameText: {fileID: 1386095093}
   portraitImage: {fileID: 915265698}
+  choiceContainer: {fileID: 1667821482}
+  choiceButtonPrefab: {fileID: 8849449112191366309, guid: 49c64e489075a1840a8cddf97bb78bfd, type: 3}
 --- !u!1 &72777531
 GameObject:
   m_ObjectHideFlags: 0
