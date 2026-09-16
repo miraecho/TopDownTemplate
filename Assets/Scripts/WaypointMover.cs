@@ -61,6 +61,7 @@ public class WaypointMover : MonoBehaviour
 
         if (Vector2.Distance(transform.position, target.position) < 0.1f) 
         {
+            transform.position = target.position;
             StartCoroutine(WaitAtWaypoint());
         }
         
