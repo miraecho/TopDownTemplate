@@ -33,7 +33,7 @@ public class InventoryController : MonoBehaviour
     public bool AddItem(GameObject itemPrefab) 
     {
         Item itemToAdd = itemPrefab.GetComponent<Item>();
-        if (itemToAdd != null) return false;
+        if (itemToAdd == null) return false;
 
         //Check if we have this item type in inventory
         foreach (Transform slotTransform in inventoryPanel.transform)
