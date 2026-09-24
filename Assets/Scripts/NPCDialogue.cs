@@ -16,6 +16,10 @@ public class NPCDialogue : ScriptableObject
     public float voicePitch = 1f;
 
     public Dialoguechoice[] choices;
+
+    public int questInProgressIndex; //What does NPC say while quest is in progress
+    public int questCompletedIndex; //What does NPC say when quest is completed
+    public Quest quest; //Quest NPC gives
 }
 
 [System.Serializable]
@@ -24,4 +28,5 @@ public class Dialoguechoice
     public int dialogueIndex; //Index of dialogueLines where choices appear
     public string[] choices; //Player's response options]
     public int[] nextDialogueIndexes; //Where choice leads to
+    public bool[] givesQuest; //If choice gives quest
 }

@@ -2116,6 +2116,7 @@ GameObject:
   - component: {fileID: 436221318}
   - component: {fileID: 436221320}
   - component: {fileID: 436221321}
+  - component: {fileID: 436221322}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -2186,6 +2187,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 039248411d9f57b4f805ca9cb006a9f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PauseController
+--- !u!114 &436221322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 436221317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4dfd666c4133774aaa1769b159cd6d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  activateQuests: []
 --- !u!1 &471111228
 GameObject:
   m_ObjectHideFlags: 0
@@ -14973,8 +14987,6 @@ MonoBehaviour:
   questListContent: {fileID: 1487091198}
   questEntryPrefab: {fileID: 6406477542215515637, guid: f0652c2914211dd4f932e6cb1058cffd, type: 3}
   objectiveTextPrefab: {fileID: 7435313439082422097, guid: 83a22fbd2237c2e46a1cb619d0e53621, type: 3}
-  testQuest: {fileID: 11400000, guid: 94c0500b6a01c7d408e73ca7352ae5dd, type: 2}
-  testQuestAmount: 7
 --- !u!1 &1893044199
 GameObject:
   m_ObjectHideFlags: 0

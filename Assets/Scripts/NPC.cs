@@ -11,6 +11,9 @@ public class NPC : MonoBehaviour, IInteractable
     private int dialogueIndex;
     private bool isTyping, isDialogueActive;
 
+    private enum QuestState { NotStarted, InProgress, QuestCompleted }
+    private QuestState questState = QuestState.NotStarted;
+
     private void Start()
     {
         dialogueUI = DialogueController.Instance;
@@ -38,14 +41,44 @@ public class NPC : MonoBehaviour, IInteractable
 
     void StartDialogue() 
     {
+        //Sync with quest data
+        SyncQuestState();
+        //Get dialogue line based on quest state
+        if (questState == QuestState.NotStarted)
+        {
+            dialogueIndex = 0;
+        }
+        else if (questState == QuestState.InProgress) 
+        {
+            dialogueIndex = dialogueData.questInProgressIndex;
+        }
+        else if (questState == QuestState.QuestCompleted)
+        {
+            dialogueIndex = dialogueData.questCompletedIndex;
+        }
+
         isDialogueActive = true;
-        dialogueIndex = 0;
         
         dialogueUI.SetNPCInfo(dialogueData.npcName, dialogueData.npcPortrait);
         dialogueUI.ShowDialogueUI(true);
         PauseController.SetPause(true);
 
         DisplayCurrentLine();
+    }
+
+    private void SyncQuestState() 
+    {
+        if (dialogueData.quest == null) return;
+
+        string questID = dialogueData.quest.questID;
+        if (QuestController.Instance.isQuestActive(questID))
+        {
+            questState = QuestState.InProgress;
+        }
+        else 
+        {
+            questState = QuestState.NotStarted;
+        }
     }
 
     void NextLine() 
@@ -114,12 +147,19 @@ public class NPC : MonoBehaviour, IInteractable
         for (int i = 0; i < choice.choices.Length; i++) 
         {
             int nextIndex = choice.nextDialogueIndexes[i];
-            dialogueUI.CreateChoiceButton(choice.choices[i], () => ChooseOption(nextIndex));
+            bool givesQuest  = choice.givesQuest[i];
+            dialogueUI.CreateChoiceButton(choice.choices[i], () => ChooseOption(nextIndex, givesQuest));
         }
     }
 
-    void ChooseOption(int nextIndex) 
+    void ChooseOption(int nextIndex, bool givesQuest)
     {
+        if (givesQuest) 
+        {
+            QuestController.Instance.AcceptQuest(dialogueData.quest);
+            questState = QuestState.InProgress;
+        }
+       
         dialogueIndex = nextIndex;
         dialogueUI.ClearChoices();
         DisplayCurrentLine();
