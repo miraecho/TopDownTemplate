@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,9 @@ public class InventoryController : MonoBehaviour
     public GameObject[] itemPrefabs;
 
     public static InventoryController Instance { get; private set; }
+    Dictionary<int, int> itemsCountCache = new();
+    public event Action OnInventoryChanged; //event to notify quest system or any other system that requires it
+    
 
     private void Awake()
     {
@@ -28,6 +32,7 @@ public class InventoryController : MonoBehaviour
     void Start()
     {
         itemDictionary = FindAnyObjectByType<ItemDictionary>();
+        RebuildItemCounts();
 
         /*for (int i = 0; i < slotCount; i++)
         {
@@ -40,6 +45,28 @@ public class InventoryController : MonoBehaviour
             }
         }*/
     }
+
+    public void RebuildItemCounts() 
+    {
+        itemsCountCache.Clear();
+
+        foreach(Transform slotTransform in inventoryPanel.transform) 
+        {
+            Slot slot = slotTransform.GetComponent<Slot>();
+            if (slot.currentItem != null ) 
+            {
+                Item item = slot.currentItem.GetComponent<Item>();
+                if (item != null) 
+                {
+                    itemsCountCache[item.ID] = itemsCountCache.GetValueOrDefault(item.ID, 0) + item.quantity;
+                }
+            }
+        }
+
+        OnInventoryChanged?.Invoke();
+    }
+
+    public Dictionary<int, int> GetItemCounts() => itemsCountCache;
 
     public bool AddItem(GameObject itemPrefab) 
     {
@@ -57,6 +84,7 @@ public class InventoryController : MonoBehaviour
                 {
                     //Same item, add to stack
                     slotItem.AddToStack();
+                    RebuildItemCounts();
                     return true;
                 }
             }
@@ -136,6 +164,8 @@ public class InventoryController : MonoBehaviour
                 }
             }
         }
+
+        RebuildItemCounts();
     }
     
 }

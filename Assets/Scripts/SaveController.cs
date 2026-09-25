@@ -40,7 +40,8 @@ public class SaveController : MonoBehaviour
             inventorySaveData = inventoryController.GetInventoryItems(),
             hotbarSaveData = hotbarController.GetHotbarItems(),
             chestSaveData = GetChestsState(),
-            soundVolume = soundEffectManager.ReturnVolume()
+            soundVolume = soundEffectManager.ReturnVolume(),
+            questProgressData = QuestController.Instance.activateQuests
         };
 
         File.WriteAllText(saveLocation, JsonUtility.ToJson(saveData));
@@ -80,6 +81,8 @@ public class SaveController : MonoBehaviour
             LoadChestStates(saveData.chestSaveData);
 
             soundEffectManager.LoadVolume(saveData.soundVolume);
+
+            QuestController.Instance.LoadQuestProgress(saveData.questProgressData);
         }
         else 
         {
