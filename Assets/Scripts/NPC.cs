@@ -11,7 +11,7 @@ public class NPC : MonoBehaviour, IInteractable
     private int dialogueIndex;
     private bool isTyping, isDialogueActive;
 
-    private enum QuestState { NotStarted, InProgress, QuestCompleted }
+    private enum QuestState { NotStarted, InProgress, Completed }
     private QuestState questState = QuestState.NotStarted;
 
     private void Start()
@@ -52,7 +52,7 @@ public class NPC : MonoBehaviour, IInteractable
         {
             dialogueIndex = dialogueData.questInProgressIndex;
         }
-        else if (questState == QuestState.QuestCompleted)
+        else if (questState == QuestState.Completed)
         {
             dialogueIndex = dialogueData.questCompletedIndex;
         }
@@ -71,7 +71,12 @@ public class NPC : MonoBehaviour, IInteractable
         if (dialogueData.quest == null) return;
 
         string questID = dialogueData.quest.questID;
-        if (QuestController.Instance.isQuestActive(questID))
+
+        if (QuestController.Instance.IsQuestCompleted(questID) || QuestController.Instance.IsQuestHandedIn(questID)) 
+        {
+            questState = QuestState.Completed;
+        }
+        else if (QuestController.Instance.isQuestActive(questID))
         {
             questState = QuestState.InProgress;
         }
@@ -173,10 +178,20 @@ public class NPC : MonoBehaviour, IInteractable
     
     public void EndDialogue() 
     {
+        if(questState == QuestState.Completed && !QuestController.Instance.IsQuestHandedIn(dialogueData.quest.questID))
+        {
+            HandleQuestCompletion(dialogueData.quest);
+        }
+
         StopAllCoroutines();
         isDialogueActive = false;
         dialogueUI.SetDialogueText("");
         dialogueUI.ShowDialogueUI(false);
         PauseController.SetPause(false);
+    }
+
+    void HandleQuestCompletion(Quest quest) 
+    {
+        QuestController.Instance.HandInQuest(quest.questID);
     }
 }
