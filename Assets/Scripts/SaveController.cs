@@ -26,7 +26,7 @@ public class SaveController : MonoBehaviour
         saveLocation = Path.Combine(Application.persistentDataPath, "saveData.json");
         Debug.Log(Application.persistentDataPath);
         inventoryController = FindAnyObjectByType<InventoryController>();
-        hotbarController = FindAnyObjectByType<HotbarController>();
+        hotbarController = FindAnyObjectByType<HotbarController>(FindObjectsInactive.Include);
         chests = FindObjectsByType<Chest>(FindObjectsSortMode.None);
         soundEffectManager = FindAnyObjectByType<SoundEffectManager>();
     }
@@ -57,6 +57,7 @@ public class SaveController : MonoBehaviour
                 chestID = chest.ChestID,
                 isOpened = chest.IsOpened
             };
+            chestStates.Add(chestSaveData);
         }
         return chestStates;
     }

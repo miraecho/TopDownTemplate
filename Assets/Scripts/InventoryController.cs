@@ -99,6 +99,8 @@ public class InventoryController : MonoBehaviour
                 GameObject newItem = Instantiate(itemPrefab, slot.transform);
                 newItem.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
                 slot.currentItem = newItem;
+
+                RebuildItemCounts();
                 return true;
             }
         }
@@ -172,7 +174,7 @@ public class InventoryController : MonoBehaviour
     {
         foreach(Transform slotTransform in inventoryPanel.transform) 
         {
-            if (amountToRemove < 0) break;
+            if (amountToRemove <= 0) break;
 
             Slot slot = slotTransform.GetComponent<Slot>();
             if (slot?.currentItem?.GetComponent<Item>() is Item item && item.ID == itemID) 
