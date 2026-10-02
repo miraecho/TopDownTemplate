@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: ID
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: -5324834443595068738, guid: 25aab28f2660c2c4ab3a8faf3879d601, type: 3}
+      propertyPath: Name
+      value: Coin
+      objectReference: {fileID: 0}
     - target: {fileID: -158441555780038400, guid: 25aab28f2660c2c4ab3a8faf3879d601, type: 3}
       propertyPath: m_Sprite
       value: 

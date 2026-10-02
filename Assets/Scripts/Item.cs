@@ -52,7 +52,7 @@ public class Item : MonoBehaviour
         Debug.Log("Using item" + Name);
     }
 
-    public virtual void PickUp() 
+    public virtual void ShowPopUp() 
     {
         Sprite itemIcon = GetComponent<SpriteRenderer>().sprite;
         if (ItemPickupUIController.Instance != null) 

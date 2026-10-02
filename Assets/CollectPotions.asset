@@ -24,4 +24,4 @@ MonoBehaviour:
   questRewards:
   - type: 0
     rewardID: 3
-    amount: 3
+    amount: 2

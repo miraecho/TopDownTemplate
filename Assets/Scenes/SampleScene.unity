@@ -2408,6 +2408,7 @@ GameObject:
   - component: {fileID: 436221320}
   - component: {fileID: 436221321}
   - component: {fileID: 436221322}
+  - component: {fileID: 436221323}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -2493,6 +2494,18 @@ MonoBehaviour:
   activateQuests: []
   notifyText: {fileID: 1324661662}
   handinQuestsIDs: []
+--- !u!114 &436221323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 436221317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fc611edcbc4b344599338a18be20d4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1 &471111228
 GameObject:
   m_ObjectHideFlags: 0
@@ -2995,6 +3008,7 @@ MonoBehaviour:
   itemPrefabs:
   - {fileID: -5324834443595068738, guid: 25aab28f2660c2c4ab3a8faf3879d601, type: 3}
   - {fileID: 9011647405737803765, guid: 48f07a04ca6319a4f97b654e44cb2965, type: 3}
+  - {fileID: 8576156146065847069, guid: 3d8c6d6501666954cacc4a180339686a, type: 3}
 --- !u!1 &550500833
 GameObject:
   m_ObjectHideFlags: 0
@@ -16234,7 +16248,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2033431603
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16570,6 +16584,10 @@ PrefabInstance:
     - target: {fileID: 4744699641068944455, guid: 3d8c6d6501666954cacc4a180339686a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8576156146065847069, guid: 3d8c6d6501666954cacc4a180339686a, type: 3}
+      propertyPath: Name
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
