@@ -1,3 +1,4 @@
+using NUnit.Framework.Internal.Commands;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Cinemachine;
@@ -8,9 +9,10 @@ public class MapTransition : MonoBehaviour
     [SerializeField] PolygonCollider2D mapBoundary;
     CinemachineConfiner2D confiner;
     [SerializeField] Direction direction;
+    [SerializeField] Transform teleportTargetPosition;
     [SerializeField] float additivePosition = 3f;
 
-    enum Direction { Up, Down, Left, Right }
+    enum Direction { Up, Down, Left, Right, Teleport }
 
     private void Awake()
     {
@@ -31,6 +33,13 @@ public class MapTransition : MonoBehaviour
 
     private void UpdatePlayerPosition(GameObject player)
     {
+        if (direction == Direction.Teleport) 
+        {
+            player.transform.position = teleportTargetPosition.position;
+
+            return;
+
+        }
         Vector3 newPosition = player.transform.position;
 
         switch (direction) 
