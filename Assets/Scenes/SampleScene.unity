@@ -2988,7 +2988,7 @@ Transform:
   m_GameObject: {fileID: 530195244}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.54, y: 22.25, z: 0}
+  m_LocalPosition: {x: 0.46, y: 21.31, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3098,7 +3098,7 @@ Transform:
   m_GameObject: {fileID: 550766209}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.54, y: -21.68, z: 0}
+  m_LocalPosition: {x: -1.56, y: -21.68, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4789,8 +4789,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 863917808}
-  - component: {fileID: 863917810}
   - component: {fileID: 863917809}
+  - component: {fileID: 863917810}
   m_Layer: 0
   m_Name: Town1_Waypoint
   m_TagString: Untagged
@@ -4830,13 +4830,16 @@ MonoBehaviour:
   direction: 4
   teleportTargetPosition: {fileID: 530195245}
   additivePosition: 3
---- !u!65 &863917810
-BoxCollider:
+--- !u!61 &863917810
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 863917807}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -4845,12 +4848,34 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.9749596, y: 0.3664142, z: 1}
-  m_Center: {x: -0.01115191, y: 0.015085399, z: 0}
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -0.00000011920929, y: -0.038621902}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1.9578326, y: 0.39749146}
+  m_EdgeRadius: 0
 --- !u!1 &897399652
 GameObject:
   m_ObjectHideFlags: 0
@@ -15241,7 +15266,7 @@ Transform:
   m_GameObject: {fileID: 1480026980}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.14, y: -14.59, z: 0}
+  m_LocalPosition: {x: 5.14, y: -14.61, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -16883,8 +16908,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1847182069}
-  - component: {fileID: 1847182071}
   - component: {fileID: 1847182070}
+  - component: {fileID: 1847182071}
   m_Layer: 0
   m_Name: Town1_Building1_Waypoint
   m_TagString: Untagged
@@ -16901,7 +16926,7 @@ Transform:
   m_GameObject: {fileID: 1847182068}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.74, y: 5.34, z: 0}
+  m_LocalPosition: {x: 6.69, y: 5.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -16924,13 +16949,16 @@ MonoBehaviour:
   direction: 4
   teleportTargetPosition: {fileID: 550766210}
   additivePosition: 3
---- !u!65 &1847182071
-BoxCollider:
+--- !u!61 &1847182071
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1847182068}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -16939,12 +16967,34 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.020114, y: 0.3664142, z: 1}
-  m_Center: {x: -0.0804553, y: 0.015085399, z: 0}
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0.06441909}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1, y: 0.27850807}
+  m_EdgeRadius: 0
 --- !u!1 &1879282787
 GameObject:
   m_ObjectHideFlags: 0
