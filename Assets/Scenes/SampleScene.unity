@@ -15343,8 +15343,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   canvasGroup: {fileID: 650553567}
-  fadeDuration: 1.2
-  vcam: {fileID: 0}
+  fadeDuration: 0.5
+  vcam: {fileID: 775512581}
 --- !u!1 &1480026980
 GameObject:
   m_ObjectHideFlags: 0

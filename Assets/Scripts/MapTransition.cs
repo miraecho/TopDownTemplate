@@ -32,12 +32,16 @@ public class MapTransition : MonoBehaviour
 
     async void FadeTransition(GameObject player) 
     {
+        PauseController.SetPause(true);
+
         await ScreenFader.Instance.FadeOut();
 
         confiner.BoundingShape2D = mapBoundary;
         UpdatePlayerPosition(player);
 
         await ScreenFader.Instance.FadeIn();
+
+        PauseController.SetPause(false);
     }
 
     private void UpdatePlayerPosition(GameObject player)

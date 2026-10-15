@@ -26,9 +26,13 @@ public class PlayerMovement : MonoBehaviour
     {
         if(PauseController.IsGamePaused) 
         {
-            rb.linearVelocity = Vector2.zero; //Stop player movement
-            animator.SetBool("IsWalking", false);
-            StopFootsteps();
+            if (rb.linearVelocity != Vector2.zero) 
+            {
+                rb.linearVelocity = Vector2.zero;
+                animator.SetBool("IsWalking", false);
+                StopMovementAnimations();
+                StopFootsteps();
+            }
             return;
         }
         rb.linearVelocity = moveInput * moveSpeed;
@@ -48,14 +52,19 @@ public class PlayerMovement : MonoBehaviour
     {
         if (context.canceled) 
         {
-            animator.SetBool("IsWalking", false);
-            animator.SetFloat("LastInputX", moveInput.x);
-            animator.SetFloat("LastInputY", moveInput.y);
+            StopMovementAnimations();
         }
             
         moveInput = context.ReadValue<Vector2>();
         animator.SetFloat("InputX", moveInput.x);
         animator.SetFloat("InputY", moveInput.y);
+    }
+
+    void StopMovementAnimations()
+    {
+        animator.SetBool("IsWalking", false);
+        animator.SetFloat("LastInputX", moveInput.x);
+        animator.SetFloat("LastInputY", moveInput.y);
     }
 
     void StartFootsteps() 
