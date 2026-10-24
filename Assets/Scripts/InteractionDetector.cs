@@ -31,7 +31,11 @@ public class InteractionDetector : MonoBehaviour
         if (collision.TryGetComponent(out IInteractable interactable) && interactable.CanInteract()) 
         {
             interactableInRange = interactable;
-            interactionIcon.SetActive(true);
+            if (collision.gameObject.tag == "Chest" || collision.gameObject.tag == "Quest") 
+            {
+                interactionIcon.SetActive(true);
+            }
+            
         }
     }
 

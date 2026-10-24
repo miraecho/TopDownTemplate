@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Item
   - InteractionDetector
+  - Quest
+  - Chest
   layers:
   - Default
   - TransparentFX
