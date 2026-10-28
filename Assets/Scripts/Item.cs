@@ -7,14 +7,25 @@ public class Item : MonoBehaviour
 {
     public int ID;
     public string Name;
+    
     public int quantity = 1;
-
     private TMP_Text quantityText;
+
+    //Shop fields
+    public int buyPrice = 10; //Buy from shop
+    [Range(0, 1)]
+    public float sellPriceMultiplier = 0.5f; //Sell for 50% buy price
+
 
     private void Awake()
     {
         quantityText = GetComponentInChildren<TMP_Text>();
         UpdateQuantityDisplay();
+    }
+
+    public int GetSellPrice() 
+    {
+        return Mathf.RoundToInt(buyPrice * sellPriceMultiplier);
     }
 
     public void AddToStack(int amount = 1) 

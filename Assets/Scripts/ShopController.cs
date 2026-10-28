@@ -105,11 +105,11 @@ public class ShopController : MonoBehaviour
         item.quantity = quantity;
         item.UpdateQuantityDisplay();
 
-        //int price = isShop ? item.buyPrice : item.GetSellPrice();
+        int price = isShop ? item.buyPrice : item.GetSellPrice();
 
         ShopSlot slot = slotObj.GetComponent<ShopSlot>();
         slot.isShopSlot = isShop;
-        //slot.SetItem(itemInstance, price);
+        slot.SetItem(itemInstance, price);
 
         //ItemHandler
     }
