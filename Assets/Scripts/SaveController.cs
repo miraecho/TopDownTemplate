@@ -12,6 +12,7 @@ public class SaveController : MonoBehaviour
     private InventoryController inventoryController;
     private HotbarController hotbarController;
     private Chest[] chests;
+    private ShopNPC[] shops; //Track shops in scene
     private SoundEffectManager soundEffectManager;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -29,6 +30,7 @@ public class SaveController : MonoBehaviour
         hotbarController = FindAnyObjectByType<HotbarController>(FindObjectsInactive.Include);
         chests = FindObjectsByType<Chest>(FindObjectsSortMode.None);
         soundEffectManager = FindAnyObjectByType<SoundEffectManager>();
+        shops = FindObjectsByType<ShopNPC>(FindObjectsSortMode.None);
     }
 
     public void SaveGame() 
@@ -40,16 +42,46 @@ public class SaveController : MonoBehaviour
             inventorySaveData = inventoryController.GetInventoryItems(),
             hotbarSaveData = hotbarController.GetHotbarItems(),
             chestSaveData = GetChestsState(),
+            questProgressData = QuestController.Instance.activateQuests,
+            handinQuestIDs = QuestController.Instance.handinQuestsIDs,
+            playerGold = CurrencyController.Instance.GetGold(),
+            shopStates = GetShopStates(),
             soundVolume = soundEffectManager.ReturnVolume(),
-            questProgressData = QuestController.Instance.activateQuests
         };
 
         File.WriteAllText(saveLocation, JsonUtility.ToJson(saveData));
     }
 
+    private List<ShopInstanceData> GetShopStates() 
+    {
+        List<ShopInstanceData> shopStates = new List<ShopInstanceData>();
+        foreach(var shop in shops) 
+        {
+            ShopInstanceData shopData = new ShopInstanceData
+            {
+                shopID = shop.shopID,
+                stock = new List<ShopItemData>()
+            };
+
+            foreach(var stockItem in shop.GetCurrentStock()) 
+            {
+                shopData.stock.Add(new ShopItemData
+                {
+                    itemID = stockItem.itemID,
+                    quantity = stockItem.quantity
+                });
+            }
+
+            shopStates.Add(shopData);
+        }
+
+        return shopStates;
+    }
+
     private List<ChestSaveData> GetChestsState() 
     {
         List<ChestSaveData> chestStates = new List<ChestSaveData>();
+
         foreach(Chest chest in chests) 
         {
             ChestSaveData chestSaveData = new ChestSaveData
@@ -81,9 +113,13 @@ public class SaveController : MonoBehaviour
 
             LoadChestStates(saveData.chestSaveData);
 
-            soundEffectManager.LoadVolume(saveData.soundVolume);
+            LoadShopStates(saveData.shopStates);
+            CurrencyController.Instance.SetGold(saveData.playerGold);
 
             QuestController.Instance.LoadQuestProgress(saveData.questProgressData);
+            QuestController.Instance.handinQuestsIDs = saveData.handinQuestIDs;
+
+            soundEffectManager.LoadVolume(saveData.soundVolume);
         }
         else 
         {
@@ -94,6 +130,34 @@ public class SaveController : MonoBehaviour
 
             MapController_Dynamic.Instance?.GenerateMap();
         }
+    }
+
+    private void LoadShopStates(List<ShopInstanceData> shopStates) 
+    {
+        if (shopStates == null) return;
+
+        foreach(var shop in shops) 
+        {
+            ShopInstanceData shopData = shopStates.FirstOrDefault(s=> s.shopID == shop.shopID);
+
+            if (shopData != null) 
+            {
+                List<ShopNPC.ShopStockItem> loadedStock = new List<ShopNPC.ShopStockItem>();
+
+
+                foreach(var itemData in shopData.stock) 
+                {
+                    loadedStock.Add(new ShopNPC.ShopStockItem
+                    {
+                        itemID = itemData.itemID,
+                        quantity = itemData.quantity
+                    });
+                }
+
+                shop.SetStock(loadedStock);
+            }
+        }
+        
     }
 
     private void LoadChestStates(List<ChestSaveData> chestStates) 
