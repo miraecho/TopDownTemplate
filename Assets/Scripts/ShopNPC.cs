@@ -89,7 +89,7 @@ public class ShopNPC : MonoBehaviour, IInteractable
     public bool RemoveFromShopStock(int itemID, int quantity) 
     {
         ShopStockItem existing = currentShopStock.Find(s => s.itemID == itemID);
-        if (existing != null && existing.quantity > quantity)
+        if (existing != null && existing.quantity > quantity - 1)
         {
             existing.quantity -= quantity;
             return true;
